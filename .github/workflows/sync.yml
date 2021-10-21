@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  DRY_RUN: true
+  DRY_RUN: false # If true, it will everything except nothing will be pushed.
   REPOSITORIES: |
     munirmr/github-actions-playground@master
 
