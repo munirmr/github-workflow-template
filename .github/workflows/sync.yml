@@ -5,13 +5,31 @@ on:
     branches:
       - main
 
+env:
+  REPOSITORIES: |
+    munirmr/github-actions-playground@master
+
+  WORKFLOW_FILES: |
+    pull-request.yml=.github/workflows/pull-request.yml
+
 jobs:
+  #sync:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Checkout Repository
+  #      uses: actions/checkout@main
+  #    - name: Run GitHub File Sync
+  #      uses: BetaHuhn/repo-file-sync-action@v1
+  #      with:
+  #        GH_PAT: ${{ secrets.GH_PAT }}
   sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@main
       - name: Run GitHub File Sync
-        uses: BetaHuhn/repo-file-sync-action@v1
+        uses: varunsridharan/action-github-workflow-sync@main
         with:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          REPOSITORIES: ${{ env.REPOSITORIES }}
+          WORKFLOW_FILES: ${{ env.WORKFLOW_FILES }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
