@@ -1,3 +1,0 @@
-munirmr/github-actions-playground@master:
-  - source: pull-request.yml
-    dest: .github/workflows/pull-request.yml
