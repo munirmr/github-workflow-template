@@ -12,7 +12,7 @@ jobs:
           destination_branch: "master"
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_title: ${{ github.event.commits[0].message }}
-          # pr_label: prelive
+          pr_label: develop
 
   fixPR:
     if: ${{ contains(github.ref, 'refs/heads/fix') }}
